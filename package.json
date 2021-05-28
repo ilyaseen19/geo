@@ -1,0 +1,94 @@
+{
+  "name": "geo",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.1",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^1.2.0",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "react-spinners": "^0.10.4",
+    "react-spring": "^8.0.27",
+    "styled-components": "^5.2.1",
+    "toasted-notes": "^3.2.0",
+    "web-vitals": "^0.2.4"
+  },
+  "main": "public/electron.js",
+  "description": "Geological calculation system",
+  "author": {"name": "ilyaseen19", "email": "alfuty09@gmail.com", "company": "code lab"},
+  "build": {
+    "appId": "geo.app",
+    "productName": "GEO",
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "extraResources": [
+      {
+        "from": "C:/Users/ABDALLAH/dprojects/pro-cure/public/icon.png",
+        "to": "/build/icon.png"
+      }
+    ],
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        "7z"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "/build/icon.png",
+      "uninstallerIcon": "/build/icon.png",
+      "uninstallDisplayName": "Geo",
+      "createDesktopShortcut": true,
+      "license": "license.text"
+    },
+    "homepage": "./"
+  },
+  "scripts": {
+    "react-start": "rescripts  start",
+    "react-build": "rescripts build",
+    "test": "rescripts  test",
+    "eject": "rescripts eject",
+    "electron-build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "pack-app": "electron-builder --dir",
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.15",
+    "@rescripts/rescript-env": "^0.0.12",
+    "concurrently": "^5.3.0",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.9.1",
+    "electron-reloader": "^1.2.0",
+    "electron-winstaller": "^4.0.1",
+    "wait-on": "^5.2.1"
+  }
+}
